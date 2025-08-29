@@ -21,7 +21,6 @@ app.post("/bfhl", (req, res) => {
       return res.status(400).json({ is_success: false, error: "Invalid input" });
     }
 
-    // Separate inputs
     const odd_numbers = [];
     const even_numbers = [];
     const alphabets = [];
@@ -30,38 +29,37 @@ app.post("/bfhl", (req, res) => {
 
     data.forEach(item => {
       if (/^-?\\d+$/.test(item)) {
-        // number (keep as string in output)
+        // item is a number
         const num = parseInt(item, 10);
         if (num % 2 === 0) {
-          even_numbers.push(item);
+          even_numbers.push(item); // keep as string
         } else {
           odd_numbers.push(item);
         }
         sum += num;
       } else if (/^[a-zA-Z]+$/.test(item)) {
+        // item is an alphabet string
         alphabets.push(item.toUpperCase());
       } else {
+        // special character
         special_characters.push(item);
       }
     });
 
-    // Concat string logic: reverse, alternating caps
+    // concat_string: all alphabets reversed with alternating caps
     let concat_string = "";
     const lettersOnly = data.filter(x => /^[a-zA-Z]+$/.test(x)).join("");
     const reversed = lettersOnly.split("").reverse();
 
     reversed.forEach((ch, idx) => {
-      concat_string += idx % 2 === 0
-        ? ch.toUpperCase()
-        : ch.toLowerCase();
+      concat_string += idx % 2 === 0 ? ch.toUpperCase() : ch.toLowerCase();
     });
 
-    // Response
     res.json({
       is_success: true,
       user_id: "john_doe_17091999",  
       email: "john@xyz.com",         
-      roll_number: "ABCD123",       
+      roll_number: "ABCD123",        
       odd_numbers,
       even_numbers,
       alphabets,
