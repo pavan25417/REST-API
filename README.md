@@ -109,4 +109,4 @@ curl -X POST https://your-api-url/bfhl \
 
 ## Author
 
-Student Name - VIT University
+B Pavan Manideep Reddy - VIT University
