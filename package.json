@@ -1,0 +1,28 @@
+{
+  "name": "bfhl-rest-api",
+  "version": "1.0.0",
+  "description": "BFHL REST API for VIT assignment",
+  "main": "bfhl-api.js",
+  "scripts": {
+    "start": "node bfhl-api.js",
+    "dev": "nodemon bfhl-api.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "rest-api",
+    "express",
+    "nodejs",
+    "bfhl"
+  ],
+  "author": "Student",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
